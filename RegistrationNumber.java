@@ -7,7 +7,7 @@ public class RegistrationNumber
     public RegistrationNumber()
     {
 
-        System.out.println("Please enter your registration number: ");
+        System.out.print("Please enter your registration number: ");
         regno = Utils.scanner.nextLine();
 
     }

@@ -8,21 +8,24 @@ public class HasUserPrePaid
 
     public HasUserPrePaid()
     {
-
+        boolean prepaid = false;
+        String s = "";
         System.out.print("Has your ticket been prepaid for? yes/no: ");
-        String p = Utils.scanner.nextLine();
+        String p = Utils.scanner.next();
 
         if (p.equalsIgnoreCase("yes"))
         {
-            this.paid = "User has prepaid.";
-            isPrepaid = true;
+            s = "User has prepaid.";
+            prepaid = true;
         }
         else if (p.equalsIgnoreCase("no"))
         {
-            this.paid = "User has not prepaid.";
-            isPrepaid = false;
+            s = "User has not prepaid.";
+            prepaid = false;
         }
 
+        this.paid = s;
+        this.isPrepaid = prepaid;
     }
 
     public boolean getHasUserPrePaid()
