@@ -15,7 +15,8 @@ public class Main
 
         HasUserPrePaid prepaid = new HasUserPrePaid();
         HaveTheyOverStayed overstayed = new HaveTheyOverStayed(aloudleaving, leave);
-        overstayed.getOverstayedStatement();
+        overstayed.setOverstayedStatement();
+        System.out.println(overstayed.getOverstayedStatement());
         if (!prepaid.getHasUserPrePaid() || overstayed.getHaveTheyOverstayed() == true)
         {
             PaymentMethod payment = new PaymentMethod();
