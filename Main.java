@@ -5,12 +5,14 @@ public class Main
     public static void main(String args[])
     {
         CreateTransactionNumber transno = new CreateTransactionNumber();
+
         TheDate date = new TheDate();
         RegistrationNumber reg = new RegistrationNumber();
         ArrivalTime arrival = new ArrivalTime();
 
         LengthOfStay length = new LengthOfStay();
         LeaveTime leave = new LeaveTime();
+        System.out.println(leave.getLeaveHour());
         AloudLeavingTime aloudleaving = new AloudLeavingTime(length, arrival);
 
         HasUserPrePaid prepaid = new HasUserPrePaid();

@@ -26,10 +26,11 @@ public class HaveTheyOverStayed
         {
 
             this.overstayed = true;
+
         }
 
         if ((leaving.getLeaveHour() == aloudleaving.getAloudLeavingHours())
-                && leaving.getLeaveMinute() > aloudleaving.getAloudLeavingMinutes())
+                && leaving.getLeaveMinute() < aloudleaving.getAloudLeavingMinutes())
         {
         }
 
@@ -52,7 +53,7 @@ public class HaveTheyOverStayed
             this.statement = "User has overstayed. You will be charged for your extra time.";
 
         }
-        else
+        else if (this.overstayed == false)
         {
 
             this.statement = "User leaving within allotted time.";
