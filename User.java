@@ -3,84 +3,97 @@ package parkingticketammended;
 public class User
 {
 
-    private String regno, date;
+    CreateTransactionNumber transaction;
 
-    private int transaction, arrivalhours, arrivalmins, leavinghours, leavingmins, staytimehours, staytimemins;
+    RegistrationNumber reg;
 
-    private double price;
+    TheDate date;
 
-    public User()
+    ArrivalTime arrivalhours, arrivalmins;
+
+    LeaveTime leavehours, leavemins;
+
+    LengthOfStay lengthhours, lengthmins;
+
+    TotalPrice price;
+
+    HaveTheyOverStayed overstayed;
+
+    public User(CreateTransactionNumber transaction, RegistrationNumber reg, TheDate date, ArrivalTime arrivalhours,
+            ArrivalTime arrivalmins, LeaveTime leavehours, LeaveTime leavemins, LengthOfStay lengthhours,
+            LengthOfStay lengthmins, TotalPrice price)
     {
 
-        CreateTransactionNumber transaction = new CreateTransactionNumber();
-        RegistrationNumber reg = new RegistrationNumber();
-        TheDate date = new TheDate();
-        ArrivalTime arrival = new ArrivalTime();
-        LeaveTime leave = new LeaveTime();
-        LengthOfStay length = new LengthOfStay();
-        TotalPrice price = new TotalPrice();
-
-        this.transaction = transaction.getTransactionNumber();
-        this.regno = reg.getRegNumber();
-        this.date = date.getDate();
-        this.arrivalhours = arrival.getArrivalHours();
-        this.arrivalmins = arrival.getArrivalMinutes();
-        this.leavinghours = leave.getLeaveHour();
-        this.leavingmins = leave.getLeaveMinute();
-        this.staytimehours = length.getLengthofStayHours();
-        this.staytimemins = length.getLengthofStayMins();
-        this.price = price.getTotalCost();
+        this.transaction = transaction;
+        this.reg = reg;
+        this.date = date;
+        this.arrivalhours = arrivalhours;
+        this.arrivalmins = arrivalmins;
+        this.leavehours = leavehours;
+        this.leavemins = leavemins;
+        this.lengthhours = lengthhours;
+        this.lengthmins = lengthmins;
+        this.price = price;
 
     }
 
-    public int getTransactionNumber()
+    public int getTransActionNumber()
     {
 
-        return transaction;
+        return transaction.getTransactionNumber();
     }
 
     public String getRegNumber()
     {
 
-        return regno;
+        return reg.getRegNumber();
     }
 
     public String getDate()
     {
 
-        return date;
+        return date.getDate();
     }
 
-    public String getArrivalTime()
+    public int getArrivalHour()
     {
 
-        return arrivalhours + ":" + arrivalmins;
+        return arrivalhours.getArrivalHours();
     }
 
-    public String getLeaveTime()
+    public int getArrivalMins()
     {
 
-        return leavinghours + ":" + leavingmins;
+        return arrivalmins.getArrivalMinutes();
     }
 
-    public String getLengthOfStay()
+    public int getLeaveHour()
     {
 
-        return staytimehours + ":" + staytimemins;
+        return leavehours.getLeaveHour();
     }
 
-    public double getTotalPrice()
+    public int getLeaveMins()
     {
 
-        return price;
+        return leavemins.getLeaveMinute();
     }
 
-    public String getUser()
+    public int getLengthOfStayHours()
     {
 
-        return "Transaction number: " + transaction + ", Registration number: " + regno + ", Arrival time: "
-                + arrivalhours + ":" + arrivalmins + ", Exit time: " + leavinghours + ":" + leavingmins
-                + ", Length of stay: " + staytimehours + ":" + staytimemins + ", Total Cost: " + price;
+        return lengthhours.getLengthofStayHours();
+    }
+
+    public int getLengthOfStayMins()
+    {
+        return lengthmins.getLengthofStayMins();
+    }
+
+    public double getTotalCost()
+    {
+
+        return price.getTotalCost();
     }
 
 }
