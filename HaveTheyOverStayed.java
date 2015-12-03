@@ -22,19 +22,18 @@ public class HaveTheyOverStayed
 
         }
 
-        if (leaving.getLeaveHour() < aloudleaving.getAloudLeavingHours())
+        if (leaving.getLeaveHour() > aloudleaving.getAloudLeavingHours())
         {
 
             this.overstayed = true;
 
         }
 
-        if ((leaving.getLeaveHour() == aloudleaving.getAloudLeavingHours())
-                && leaving.getLeaveMinute() < aloudleaving.getAloudLeavingMinutes())
+        if ((leave.getLeaveHour() == aloudleaving.getAloudLeavingHours())
+                && leave.getLeaveMinute() > aloudleaving.getAloudLeavingMinutes())
         {
+            this.overstayed = true;
         }
-
-        this.overstayed = true;
 
     }
 
