@@ -3,7 +3,7 @@ package parkingticketammended;
 public class AloudLeavingTime
 {
 
-    private int timehours, timeminutes;
+    private int timeHours, timeMinutes;
 
     private int counter = 0;
 
@@ -15,20 +15,20 @@ public class AloudLeavingTime
     {
         this.length = length;
         this.time = time;
-        this.timehours = (time.getArrivalHours() + length.getLengthofStayHours());
-        this.timeminutes = (time.getArrivalMinutes() + length.getLengthofStayMins());
-        if (timeminutes > 59)
+        this.timeHours = (time.getArrivalHours() + length.getLengthofStayHours());
+        this.timeMinutes = (time.getArrivalMinutes() + length.getLengthofStayMins());
+        if (timeMinutes > 59)
         {
 
-            this.timeminutes = (timeminutes - 60);
-            this.timehours++;
+            this.timeMinutes = (timeMinutes - 60);
+            this.timeHours++;
 
         }
 
-        if (timehours > 23)
+        if (timeHours > 23)
         {
 
-            this.timehours = (timehours - 24);
+            this.timeHours = (timeHours - 24);
             this.counter++;
         }
     }
@@ -36,13 +36,13 @@ public class AloudLeavingTime
     public int getAloudLeavingHours()
     {
 
-        return timehours;
+        return timeHours;
     }
 
     public int getAloudLeavingMinutes()
     {
 
-        return timeminutes;
+        return timeMinutes;
     }
 
     public int getCounter()

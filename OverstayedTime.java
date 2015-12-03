@@ -2,7 +2,9 @@ package parkingticketammended;
 
 public class OverstayedTime
 {
-    private int hours, minutes;
+    private int hours = 0;
+
+    private int minutes = 0;
 
     AloudLeavingTime leaving;
 

@@ -8,16 +8,17 @@ public class LengthOfStay
 
     public LengthOfStay(HasUserPrePaid prepaid)
     {
+        int hourStayed = 0;
         this.prepaid = prepaid.getHasUserPrePaid();
         if (this.prepaid == false)
         {
             System.out.print("Please enter how long you stayed for in hours: ");
-            int hours = Utils.scanner.nextInt();
+            hourStayed = Utils.scanner.nextInt();
         }
         else if (this.prepaid == true)
         {
             System.out.print("Please enter how long you paid for in hours: ");
-            int hours = Utils.scanner.nextInt();
+            hourStayed = Utils.scanner.nextInt();
         }
         System.out.print("And minutes: ");
         int mins = Utils.scanner.nextInt();
@@ -26,7 +27,7 @@ public class LengthOfStay
         {
             hours++;
         }
-        this.hours = hours;
+        this.hours = hourStayed;
         this.mins = mins;
     }
 

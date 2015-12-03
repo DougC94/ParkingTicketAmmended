@@ -2,18 +2,15 @@ package parkingticketammended;
 
 public class TotalPrice
 {
-    private double total;
+    private double total = 0;
 
-    CostOfParking cost;
-
-    OverstayedPrice extra;
+    private double extra = 0;
 
     public TotalPrice(CostOfParking cost, OverstayedPrice extra)
     {
-        this.cost = cost;
-        this.extra = extra;
+
+        this.extra = extra.getExtraCost();
         this.total = cost.getCostOfParking();
-        extra.getExtraCost();
 
         if (extra.getExtraCost() > 0)
         {

@@ -4,95 +4,113 @@ import java.util.Calendar;
 
 public class CostOfParking
 {
-    private double weekcost, weekendcost, cost;
+    private double weekCost, weekendCost, cost;
 
     HasUserPrePaid prepaid;
 
     private String statement;
 
-    LengthOfStay hours;
+    private int hours;
 
     public CostOfParking(LengthOfStay hours)
     {
-        this.hours = hours;
+        this.hours = hours.getLengthofStayHours();
 
-        if (hours.getLengthofStayHours() <= 1)
-        {
-
-            this.weekcost = 4.80;
-        }
-        else if (hours.getLengthofStayHours() <= 2)
-        {
-            this.weekcost = 7.40;
-        }
-        else if (hours.getLengthofStayHours() <= 4)
-        {
-            this.weekcost = 10.30;
-        }
-        else if (hours.getLengthofStayHours() <= 6)
-        {
-            this.weekcost = 14.80;
-        }
-        else if (hours.getLengthofStayHours() <= 9)
-        {
-            this.weekcost = 17.80;
-        }
-        else if (hours.getLengthofStayHours() <= 12)
-        {
-            this.weekcost = 20.20;
-        }
-        else if (hours.getLengthofStayHours() <= 24)
-        {
-            this.weekcost = 23.70;
-        }
-
-        if (hours.getLengthofStayHours() <= 1)
+        if (this.hours <= 1)
         {
 
-            this.weekendcost = 4.80;
+            this.weekCost = 4.80;
         }
-        else if (hours.getLengthofStayHours() <= 2)
+        else if (this.hours <= 2)
         {
-            this.weekendcost = 7.40;
+            this.weekCost = 7.40;
         }
-        else if (hours.getLengthofStayHours() <= 4)
+        else if (this.hours <= 4)
         {
-            this.weekendcost = 10.30;
+            this.weekCost = 10.30;
         }
-        else if (hours.getLengthofStayHours() <= 6)
+        else if (this.hours <= 6)
         {
-            this.weekendcost = 14.80;
+            this.weekCost = 14.80;
         }
-        else if (hours.getLengthofStayHours() <= 9)
+        else if (this.hours <= 9)
         {
-            this.weekendcost = 17.80;
+            this.weekCost = 17.80;
         }
-        else if (hours.getLengthofStayHours() <= 12)
+        else if (this.hours <= 12)
         {
-            this.weekendcost = 20.20;
+            this.weekCost = 20.20;
         }
-        else if (hours.getLengthofStayHours() <= 24)
+        else if (this.hours <= 24)
         {
-            this.weekendcost = 23.70;
+            this.weekCost = 23.70;
         }
+
+        if (this.hours <= 1)
+        {
+
+            this.weekendCost = 4.80;
+        }
+        else if (this.hours <= 2)
+        {
+            this.weekendCost = 7.40;
+        }
+        else if (this.hours <= 4)
+        {
+            this.weekendCost = 10.30;
+        }
+        else if (this.hours <= 6)
+        {
+            this.weekendCost = 14.80;
+        }
+        else if (this.hours <= 9)
+        {
+            this.weekendCost = 17.80;
+        }
+        else if (this.hours <= 12)
+        {
+            this.weekendCost = 20.20;
+        }
+        else if (this.hours <= 24)
+        {
+            this.weekendCost = 23.70;
+        }
+
+    }
+
+    public void setCostOfParking()
+    {
+        double i;
+        Calendar day = Calendar.getInstance();
+        if (day.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || day.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
+        {
+            i = this.weekCost;
+        }
+        else
+        {
+            i = this.weekendCost;
+        }
+
+        this.cost = i;
 
     }
 
     public double getCostOfParking()
     {
 
-        Calendar day = Calendar.getInstance();
-        if (day.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || day.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
-        {
-            this.cost = this.weekcost;
-        }
-        else
-        {
-            this.cost = this.weekendcost;
-        }
+        return cost;
+    }
 
-        return this.cost;
+    public void setCostStatement()
+    {
 
+        this.statement = "You will be charged " + getCostOfParking() + "0 for parking.";
+    }
+
+    public String getCostStatment()
+    {
+
+        return statement;
     }
 
 }

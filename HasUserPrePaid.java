@@ -21,7 +21,6 @@ public class HasUserPrePaid
         else if (p.equalsIgnoreCase("no"))
         {
             s = "User has not prepaid.";
-            prepaid = false;
         }
 
         this.paid = s;

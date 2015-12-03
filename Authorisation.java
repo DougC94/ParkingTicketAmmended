@@ -6,41 +6,41 @@ public class Authorisation
 
     boolean overstayed;
 
-    String cardnumber;
+    String cardNumber;
 
-    int cardmonth, cardyear;
+    int cardMonth, cardYear;
 
-    boolean checkexpiry, checknumber;
+    boolean checkExpiry, checkNumber;
 
     String date;
 
     boolean invalid = false;
 
-    String prepaidstatement, overstayedstatement;
+    String prepaidStatement, overstayedStatement;
 
-    String failurereason = "";
+    String failureReason = "";
 
-    int transno;
+    int transNo;
 
     public Authorisation(CreateTransactionNumber transno, HasUserPrePaid prepaid, HaveTheyOverStayed overstayed,
             PaymentMethod payment, PaymentChecker checkpay, TheDate date)
     {
 
-        this.transno = transno.getTransactionNumber();
+        this.transNo = transno.getTransactionNumber();
         this.prepaid = prepaid.getHasUserPrePaid();
         this.overstayed = overstayed.getHaveTheyOverstayed();
-        this.cardnumber = payment.getCardnumber();
-        this.cardmonth = payment.getExpiryMonth();
-        this.cardyear = payment.getExpiryYear();
-        this.checkexpiry = checkpay.getCreditCardExpired();
-        this.checknumber = checkpay.getInvalidCardNumber();
+        this.cardNumber = payment.getCardnumber();
+        this.cardMonth = payment.getExpiryMonth();
+        this.cardYear = payment.getExpiryYear();
+        this.checkExpiry = checkpay.getCreditCardExpired();
+        this.checkNumber = checkpay.getInvalidCardNumber();
         this.date = date.getDate();
     }
 
     public int getTransactionNumber()
     {
 
-        return transno;
+        return transNo;
     }
 
     public void setTypeOfTransaction()
@@ -49,7 +49,7 @@ public class Authorisation
         if (prepaid == false)
         {
 
-            this.prepaidstatement = "D";
+            this.prepaidStatement = "D";
         }
 
     }
@@ -57,7 +57,7 @@ public class Authorisation
     public String getTypeOfTransaction()
     {
 
-        return prepaidstatement;
+        return prepaidStatement;
     }
 
     public void setOverstayedStatement()
@@ -66,32 +66,32 @@ public class Authorisation
         if (overstayed == true)
         {
 
-            this.overstayedstatement = "O";
+            this.overstayedStatement = "O";
         }
     }
 
     public String getOverstayedStatement()
     {
 
-        return overstayedstatement;
+        return overstayedStatement;
     }
 
     public String getCardNumber()
     {
 
-        return cardnumber;
+        return cardNumber;
     }
 
     public String getCardExpiry()
     {
 
-        return cardmonth + "/" + cardyear;
+        return cardMonth + "/" + cardYear;
     }
 
     public void setIsRequestInvalid()
     {
 
-        if (this.checkexpiry == true || this.checknumber == true)
+        if (this.checkExpiry == true || this.checkNumber == true)
         {
 
             this.invalid = true;
@@ -119,14 +119,14 @@ public class Authorisation
         if (this.invalid = true)
         {
 
-            if (this.checkexpiry == true)
+            if (this.checkExpiry == true)
             {
 
-                this.failurereason = "The card has expired.";
+                this.failureReason = "The card has expired.";
             }
-            else if (this.checknumber == true)
+            else if (this.checkNumber == true)
             {
-                this.failurereason = "The card number is invalid.";
+                this.failureReason = "The card number is invalid.";
             }
         }
 
@@ -135,7 +135,7 @@ public class Authorisation
     public String getReasonForFailure()
     {
 
-        return failurereason;
+        return failureReason;
     }
 
     public String getDate()

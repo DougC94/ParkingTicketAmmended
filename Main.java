@@ -11,8 +11,15 @@ public class Main
         ArrivalTime arrival = new ArrivalTime();
         HasUserPrePaid prepaid = new HasUserPrePaid();
         LengthOfStay length = new LengthOfStay(prepaid);
+        CostOfParking cost = new CostOfParking(length);
+        cost.setCostOfParking();
+        if (prepaid.getHasUserPrePaid() == false)
+        {
+            cost.setCostStatement();
+            System.out.println(cost.getCostStatment());
+        }
         LeaveTime leave = new LeaveTime();
-        System.out.println(leave.getLeaveHour());
+
         AloudLeavingTime aloudleaving = new AloudLeavingTime(length, arrival);
 
         HaveTheyOverStayed overstayed = new HaveTheyOverStayed(aloudleaving, leave);
@@ -37,7 +44,6 @@ public class Main
             authfile.Run();
 
         }
-        CostOfParking cost = new CostOfParking(length);
 
         OverstayedTime overstayedtime = new OverstayedTime(aloudleaving, leave, overstayed);
         OverstayedPrice extraprice = new OverstayedPrice(overstayedtime);

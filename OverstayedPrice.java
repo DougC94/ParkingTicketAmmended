@@ -2,40 +2,40 @@ package parkingticketammended;
 
 public class OverstayedPrice
 {
-    private double cost;
+    private double cost = 0;
 
-    OverstayedTime time;
+    private int hours = 0;
 
-    public OverstayedPrice(OverstayedTime time)
+    public OverstayedPrice(OverstayedTime hours)
     {
-        this.time = time;
+        this.hours = hours.getOverstayedHours();
 
-        if (time.getOverstayedHours() <= 1)
+        if (this.hours == 1)
         {
 
             this.cost = 4.32;
         }
-        else if (time.getOverstayedHours() <= 2)
+        else if (this.hours <= 2)
         {
             this.cost = 6.66;
         }
-        else if (time.getOverstayedHours() <= 4)
+        else if (this.hours <= 4)
         {
             this.cost = 9.27;
         }
-        else if (time.getOverstayedHours() <= 6)
+        else if (this.hours <= 6)
         {
             this.cost = 13.32;
         }
-        else if (time.getOverstayedHours() <= 9)
+        else if (this.hours <= 9)
         {
             this.cost = 16.02;
         }
-        else if (time.getOverstayedHours() <= 12)
+        else if (this.hours <= 12)
         {
             this.cost = 18.18;
         }
-        else if (time.getOverstayedHours() <= 24)
+        else if (this.hours <= 24)
         {
             this.cost = 21.33;
         }
