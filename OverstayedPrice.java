@@ -13,31 +13,31 @@ public class OverstayedPrice
         if (time.getOverstayedHours() <= 1)
         {
 
-            this.cost = 4.80;
+            this.cost = 4.32;
         }
         else if (time.getOverstayedHours() <= 2)
         {
-            this.cost = 7.40;
+            this.cost = 6.66;
         }
         else if (time.getOverstayedHours() <= 4)
         {
-            this.cost = 10.30;
+            this.cost = 9.27;
         }
         else if (time.getOverstayedHours() <= 6)
         {
-            this.cost = 14.80;
+            this.cost = 13.32;
         }
         else if (time.getOverstayedHours() <= 9)
         {
-            this.cost = 17.80;
+            this.cost = 16.02;
         }
         else if (time.getOverstayedHours() <= 12)
         {
-            this.cost = 20.20;
+            this.cost = 18.18;
         }
         else if (time.getOverstayedHours() <= 24)
         {
-            this.cost = 23.70;
+            this.cost = 21.33;
         }
 
     }
