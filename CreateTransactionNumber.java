@@ -1,17 +1,20 @@
 package parkingticketammended;
 
+import java.util.UUID;
+
 public class CreateTransactionNumber
 {
-    private int transno = 0;
+    String transno;
 
     public CreateTransactionNumber()
     {
-
+        String uuid = UUID.randomUUID().toString();
+        this.transno = uuid;
     }
 
-    public int getTransactionNumber()
+    public String getTransactionNumber()
     {
-        transno++;
+
         return transno;
 
     }

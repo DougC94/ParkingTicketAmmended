@@ -27,7 +27,7 @@ public class CSVFile
             ticket.print(",");
             ticket.print(user.getDate());
             ticket.print(",");
-            ticket.print(user.getArrivalMins());
+            ticket.print(user.getArrivalHour());
             ticket.print(",");
             ticket.print(user.getArrivalMins());
             ticket.print(",");

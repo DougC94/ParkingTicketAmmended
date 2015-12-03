@@ -10,7 +10,7 @@ public class TerminalDisplay
 
     LengthOfStay length;
 
-    CreateTransactionNumber transno;
+    public String transno;
 
     public TerminalDisplay(CreateTransactionNumber transno, RegistrationNumber regno, LengthOfStay length,
             TotalPrice cost)
@@ -18,11 +18,11 @@ public class TerminalDisplay
         this.cost = cost;
         this.regno = regno;
         this.length = length;
-        this.transno = transno;
+        this.transno = transno.getTransactionNumber();
 
-        this.display = "Transaction " + transno.getTransactionNumber() + ", Registartion " + regno.getRegNumber()
-                + ", Length of Stay " + length.getLengthofStayHours() + " hours " + length.getLengthofStayMins()
-                + ", Amount due: £" + cost.getTotalCost();
+        this.display = "Transaction " + this.transno + ", Registartion " + regno.getRegNumber() + ", Length of Stay "
+                + length.getLengthofStayHours() + " hours " + length.getLengthofStayMins() + ", Amount due: £"
+                + cost.getTotalCost();
 
     }
 
@@ -30,6 +30,7 @@ public class TerminalDisplay
     {
 
         return display;
+
     }
 
 }

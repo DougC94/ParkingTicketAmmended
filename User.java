@@ -37,7 +37,7 @@ public class User
 
     }
 
-    public int getTransActionNumber()
+    public String getTransActionNumber()
     {
 
         return transaction.getTransactionNumber();

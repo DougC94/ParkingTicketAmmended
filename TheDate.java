@@ -11,7 +11,7 @@ public class TheDate
     {
 
         Date date = new Date();
-        SimpleDateFormat d = new SimpleDateFormat("yyyy.dd.mm");
+        SimpleDateFormat d = new SimpleDateFormat("dd.MM.yyyy");
         this.thedate = d.format(date);
     }
 

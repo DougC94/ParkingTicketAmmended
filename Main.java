@@ -7,6 +7,7 @@ public class Main
         CreateTransactionNumber transno = new CreateTransactionNumber();
 
         TheDate date = new TheDate();
+        System.out.println(date.getDate());
         RegistrationNumber reg = new RegistrationNumber();
         ArrivalTime arrival = new ArrivalTime();
         HasUserPrePaid prepaid = new HasUserPrePaid();
@@ -35,7 +36,7 @@ public class Main
         }
 
         System.out.println(overstayed.getOverstayedStatement());
-        if (overstayed.getHaveTheyOverstayed() == true)
+        if (overstayed.getHaveTheyOverstayed() == true && prepaid.getHasUserPrePaid() == true)
         {
             PaymentMethod payment = new PaymentMethod();
             PaymentChecker paycheck = new PaymentChecker(payment);
@@ -47,6 +48,7 @@ public class Main
 
         OverstayedTime overstayedtime = new OverstayedTime(aloudleaving, leave, overstayed);
         OverstayedPrice extraprice = new OverstayedPrice(overstayedtime);
+        System.out.println(extraprice.getExtraCost());
         TotalPrice total = new TotalPrice(cost, extraprice);
         TerminalDisplay display = new TerminalDisplay(transno, reg, length, total);
         System.out.println(display.getTerminalDisplay());

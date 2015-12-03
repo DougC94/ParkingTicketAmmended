@@ -2,26 +2,36 @@ package parkingticketammended;
 
 public class OverstayedTime
 {
+
     private int hours = 0;
 
     private int minutes = 0;
 
-    AloudLeavingTime leaving;
+    private int leavingHours = 0;
+
+    private int leavingMins = 0;
+
+    private int aloudLeavingHours = 0;
+
+    private int aloudLeavingMins = 0;
 
     LeaveTime leave;
 
-    HaveTheyOverStayed overstayed;
+    boolean overstayed = false;
 
     public OverstayedTime(AloudLeavingTime leaving, LeaveTime leave, HaveTheyOverStayed overstayed)
     {
-        this.overstayed = overstayed;
-        this.leaving = leaving;
-        this.leave = leave;
+        this.overstayed = overstayed.getHaveTheyOverstayed();
+        this.aloudLeavingHours = leaving.getAloudLeavingHours();
+        this.aloudLeavingMins = leaving.getAloudLeavingMinutes();
+        this.leavingHours = leave.getLeaveHour();
+        this.leavingMins = leave.getLeaveMinute();
+
         if (overstayed.getHaveTheyOverstayed() == true)
         {
 
-            this.minutes = leave.getLeaveMinute() - leaving.getAloudLeavingMinutes();
-            this.hours = leave.getLeaveHour() - leaving.getAloudLeavingHours();
+            this.minutes = this.leavingMins - this.aloudLeavingMins;
+            this.hours = this.leavingHours - this.aloudLeavingHours;
             if (this.minutes > 0)
             {
 
